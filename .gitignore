@@ -26,7 +26,7 @@ src/**/*.css
 .vscode/*
 package-lock\.json
 
-serviceAccountKey\.json
-config\.js
+serviceAccountKey.json
+/functions/util/config.js
 
 firebase-debug.log
