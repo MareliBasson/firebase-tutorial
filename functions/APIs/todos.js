@@ -3,6 +3,7 @@ const { db } = require("../util/admin")
 exports.getAllTodos = (request, response) => {
 	db.collection("todos")
 		.orderBy("createdAt", "desc")
+		.where("username", "==", request.user.username)
 		.get()
 		.then((data) => {
 			let todos = []
@@ -37,6 +38,7 @@ exports.postOneTodo = (request, response) => {
 		title: request.body.title,
 		body: request.body.body,
 		createdAt: new Date().toISOString(),
+		username: request.user.username,
 	}
 
 	db.collection("todos")
